@@ -11,5 +11,7 @@ spring:
     password: sa
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
   h2:
     console.enabled: true
