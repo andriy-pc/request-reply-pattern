@@ -18,10 +18,6 @@ public enum OrderStatusEnum {
     static Map<String, OrderStatusEnum> namePerStatus = Stream.of(values())
             .collect(Collectors.toMap(OrderStatusEnum::getName, status -> status));
 
-    String getName() {
-        return name;
-    }
-
     private String name;
 
     OrderStatusEnum(String name) {
