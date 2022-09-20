@@ -1,4 +1,4 @@
-package com.requestreply.order.service.dao.model;
+package com.requestreply.order.service.model.entity;
 
 import com.requestreply.order.service.enums.OrderStatusConverter;
 import com.requestreply.order.service.enums.OrderStatusEnum;
