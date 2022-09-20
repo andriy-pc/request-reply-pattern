@@ -1,6 +1,6 @@
 package com.requestreply.order.service.dao.repository;
 
-import com.requestreply.order.service.dao.model.Order;
+import com.requestreply.order.service.model.entity.Order;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -18,5 +18,11 @@ public class DefaultOrderRepository implements OrderRepository {
         return entityManager.createQuery("SELECT o FROM Order o WHERE o.originalOrderId = ?1", Order.class)
                 .setParameter(1, originalOrderId)
                 .getSingleResult();
+    }
+
+    @Override
+    public Order update(Order order) {
+        entityManager.merge(order);
+        return order;
     }
 }

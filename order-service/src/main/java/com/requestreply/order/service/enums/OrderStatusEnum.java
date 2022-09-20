@@ -10,13 +10,13 @@ import java.util.stream.Stream;
 public enum OrderStatusEnum {
 
     CREATED("created"),
+    SHIPPING_REQUESTED("shipping requested"),
     SHIPPING("shipping"),
     SHIPPED("shipped"),
     CANCELLED("cancelled");
 
     static Map<String, OrderStatusEnum> namePerStatus = Stream.of(values())
             .collect(Collectors.toMap(OrderStatusEnum::getName, status -> status));
-
 
     private String name;
 

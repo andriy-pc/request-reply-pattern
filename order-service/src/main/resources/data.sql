@@ -14,7 +14,7 @@ CREATE TABLE orders
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
     original_order_id VARCHAR(15) NOT NULL,
-    status VARCHAR(15)
+    status VARCHAR(20)
 );
 
 CREATE TABLE order_entry
