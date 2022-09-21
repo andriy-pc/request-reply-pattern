@@ -1,7 +1,7 @@
-package model.mapper;
+package com.requestreply.order.model.mapper;
 
 import model.dto.ProductDTO;
-import model.entity.Product;
+import com.requestreply.order.repository.entity.Product;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

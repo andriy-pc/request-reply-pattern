@@ -8,4 +8,6 @@ public interface OrderService {
 
     Boolean ship(String originalOrderId);
 
+    void processShipmentResponse(OrderDTO orderDTO);
+
 }

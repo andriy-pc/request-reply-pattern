@@ -1,11 +1,12 @@
 package com.requestreply.order.service;
 
-import com.requestreply.order.dao.repository.OrderRepository;
+import com.requestreply.order.model.mapper.OrderMapper;
+import com.requestreply.order.repository.OrderRepository;
 import enums.OrderStatusEnum;
 import lombok.RequiredArgsConstructor;
 import model.dto.OrderDTO;
-import model.entity.Order;
-import model.mapper.OrderMapper;
+import com.requestreply.order.repository.entity.Order;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,8 @@ public class DefaultOrderService implements OrderService {
 
     private final OrderMapper orderMapper;
 
+    private final KafkaTemplate<String, OrderDTO> kafkaTemplate;
+
     public OrderDTO getByOriginalOrderId(String originalOrderId) {
         return orderMapper.toDto(orderRepository.findByOriginalOrderId(originalOrderId));
     }
@@ -28,8 +31,17 @@ public class DefaultOrderService implements OrderService {
     public Boolean ship(String originalOrderId) {
         Order order = orderRepository.findByOriginalOrderId(originalOrderId);
         order.setStatus(OrderStatusEnum.SHIPPING_REQUESTED);
+        kafkaTemplate.send("shipment-request", orderMapper.toDto(order));
         orderRepository.update(order);
         return SHIPMENT_REQUEST_ACCEPTED;
+    }
+
+    @Override
+    @Transactional
+    public void processShipmentResponse(OrderDTO orderDTO) {
+        Order order = orderRepository.findByOriginalOrderId(orderDTO.getOriginalOrderId());
+        order.setStatus(orderDTO.getStatus());
+        orderRepository.update(order);
     }
 
 }

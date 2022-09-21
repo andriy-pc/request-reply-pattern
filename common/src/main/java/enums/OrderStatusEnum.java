@@ -11,6 +11,7 @@ public enum OrderStatusEnum {
 
     CREATED("created"),
     SHIPPING_REQUESTED("shipping requested"),
+    SHIPPING_REJECTED("shipping rejected"),
     SHIPPING("shipping"),
     SHIPPED("shipped"),
     CANCELLED("cancelled");

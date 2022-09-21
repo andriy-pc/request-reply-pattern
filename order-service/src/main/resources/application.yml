@@ -17,3 +17,7 @@ spring:
       ddl-auto: none
   h2:
     console.enabled: true
+
+config:
+  kafka:
+    url: localhost:29092

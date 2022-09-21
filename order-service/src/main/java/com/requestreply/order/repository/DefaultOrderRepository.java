@@ -1,6 +1,6 @@
-package com.requestreply.order.dao.repository;
+package com.requestreply.order.repository;
 
-import model.entity.Order;
+import com.requestreply.order.repository.entity.Order;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
