@@ -1,11 +1,11 @@
 package com.requestreply.order.service;
 
-import com.requestreply.order.model.entity.Order;
 import com.requestreply.order.dao.repository.OrderRepository;
-import com.requestreply.order.enums.OrderStatusEnum;
-import com.requestreply.order.model.dto.OrderDTO;
-import com.requestreply.order.model.mapper.OrderMapper;
+import enums.OrderStatusEnum;
 import lombok.RequiredArgsConstructor;
+import model.dto.OrderDTO;
+import model.entity.Order;
+import model.mapper.OrderMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

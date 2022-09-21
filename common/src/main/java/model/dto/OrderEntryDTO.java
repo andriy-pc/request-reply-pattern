@@ -1,4 +1,4 @@
-package com.requestreply.order.model.dto;
+package model.dto;
 
 
 import lombok.AllArgsConstructor;

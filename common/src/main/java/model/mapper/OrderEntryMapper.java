@@ -1,7 +1,7 @@
-package com.requestreply.order.model.mapper;
+package model.mapper;
 
-import com.requestreply.order.model.entity.OrderEntry;
-import com.requestreply.order.model.dto.OrderEntryDTO;
+import model.dto.OrderEntryDTO;
+import model.entity.OrderEntry;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 

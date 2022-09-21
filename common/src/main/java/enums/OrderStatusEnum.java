@@ -1,4 +1,4 @@
-package com.requestreply.order.enums;
+package enums;
 
 import lombok.Getter;
 

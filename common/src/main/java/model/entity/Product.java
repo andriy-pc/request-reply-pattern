@@ -1,4 +1,4 @@
-package com.requestreply.order.dao.model;
+package model.entity;
 
 import lombok.Getter;
 import lombok.Setter;

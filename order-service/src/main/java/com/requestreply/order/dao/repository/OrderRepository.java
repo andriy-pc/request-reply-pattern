@@ -1,6 +1,7 @@
 package com.requestreply.order.dao.repository;
 
-import com.requestreply.order.model.entity.Order;
+
+import model.entity.Order;
 
 public interface OrderRepository {
 

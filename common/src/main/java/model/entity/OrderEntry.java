@@ -1,4 +1,4 @@
-package com.requestreply.order.model.entity;
+package model.entity;
 
 
 import lombok.Getter;

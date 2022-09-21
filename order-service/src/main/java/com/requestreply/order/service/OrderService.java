@@ -1,6 +1,6 @@
 package com.requestreply.order.service;
 
-import com.requestreply.order.model.dto.OrderDTO;
+import model.dto.OrderDTO;
 
 public interface OrderService {
 

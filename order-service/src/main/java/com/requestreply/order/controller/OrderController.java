@@ -1,8 +1,8 @@
 package com.requestreply.order.controller;
 
-import com.requestreply.order.model.dto.OrderDTO;
 import com.requestreply.order.service.DefaultOrderService;
 import lombok.RequiredArgsConstructor;
+import model.dto.OrderDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

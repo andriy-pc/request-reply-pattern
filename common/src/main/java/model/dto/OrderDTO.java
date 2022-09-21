@@ -1,6 +1,6 @@
-package com.requestreply.order.model.dto;
+package model.dto;
 
-import com.requestreply.order.enums.OrderStatusEnum;
+import enums.OrderStatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

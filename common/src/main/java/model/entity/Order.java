@@ -1,7 +1,7 @@
-package com.requestreply.order.model.entity;
+package model.entity;
 
-import com.requestreply.order.enums.OrderStatusConverter;
-import com.requestreply.order.enums.OrderStatusEnum;
+import enums.OrderStatusConverter;
+import enums.OrderStatusEnum;
 import lombok.Getter;
 import lombok.Setter;
 

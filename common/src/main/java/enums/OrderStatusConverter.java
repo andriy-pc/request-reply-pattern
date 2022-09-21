@@ -1,4 +1,4 @@
-package com.requestreply.order.enums;
+package enums;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
