@@ -1,6 +1,5 @@
 package com.requestreply.order.repository.entity;
 
-
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,17 +12,15 @@ import java.math.BigDecimal;
 @Setter
 public class OrderEntry {
 
-    @Id
-    private Integer id;
+  @Id private Integer id;
 
-    @OneToOne
-    @JoinColumn(name = "product_id")
-    private Product product;
+  @OneToOne
+  @JoinColumn(name = "product_id")
+  private Product product;
 
-    @Column(name = "ordered_qty")
-    private Integer orderedQty;
+  @Column(name = "ordered_qty")
+  private Integer orderedQty;
 
-    @Column(name = "order_entry_price")
-    private BigDecimal orderEntryPrice;
-
+  @Column(name = "order_entry_price")
+  private BigDecimal orderEntryPrice;
 }

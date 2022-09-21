@@ -4,25 +4,25 @@ DROP TABLE IF EXISTS products;
 
 CREATE TABLE products
 (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(25) NOT NULL,
-    stock_quantity INT NOT NULL,
-    price DECIMAL NOT NULL
+    id             INT AUTO_INCREMENT PRIMARY KEY,
+    name           VARCHAR(25) NOT NULL,
+    stock_quantity INT         NOT NULL,
+    price          DECIMAL     NOT NULL
 );
 
 CREATE TABLE orders
 (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id                INT AUTO_INCREMENT PRIMARY KEY,
     original_order_id VARCHAR(15) NOT NULL,
-    status VARCHAR(20)
+    status            VARCHAR(20)
 );
 
 CREATE TABLE order_entry
 (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    order_id INT NOT NULL,
-    product_id INT NOT NULL,
-    ordered_qty INT NOT NULL,
+    id                INT AUTO_INCREMENT PRIMARY KEY,
+    order_id          INT            NOT NULL,
+    product_id        INT            NOT NULL,
+    ordered_qty       INT            NOT NULL,
     order_entry_price DECIMAL(10, 2) NOT NULL,
 
     FOREIGN KEY (order_id)
@@ -33,15 +33,12 @@ CREATE TABLE order_entry
 );
 
 INSERT INTO products (name, stock_quantity, price)
-VALUES
-    ('pen', 10, 0.99),
-    ('book', 5, 4.99),
-    ('ps5', 1, 800);
+VALUES ('pen', 10, 0.99),
+       ('book', 5, 4.99),
+       ('ps5', 1, 800);
 
 INSERT INTO orders (original_order_id, status)
-VALUES
-    ('114-14345-12', 'created');
+VALUES ('114-14345-12', 'created');
 
 INSERT INTO order_entry (order_id, product_id, ordered_qty, order_entry_price)
-VALUES
-    (1, 1, 5, 0.99);
+VALUES (1, 1, 5, 0.99);

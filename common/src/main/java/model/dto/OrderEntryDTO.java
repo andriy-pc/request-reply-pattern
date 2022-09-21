@@ -1,6 +1,5 @@
 package model.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,9 +11,9 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class OrderEntryDTO {
 
-    private ProductDTO productDTO;
+  private ProductDTO productDTO;
 
-    private Integer orderedQty;
+  private Integer orderedQty;
 
-    private BigDecimal orderEntryPrice;
+  private BigDecimal orderEntryPrice;
 }

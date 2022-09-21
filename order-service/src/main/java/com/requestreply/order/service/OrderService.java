@@ -4,10 +4,9 @@ import model.dto.OrderDTO;
 
 public interface OrderService {
 
-    OrderDTO getByOriginalOrderId(String originalOrderId);
+  OrderDTO getByOriginalOrderId(String originalOrderId);
 
-    Boolean ship(String originalOrderId);
+  Boolean ship(String originalOrderId);
 
-    void processShipmentResponse(OrderDTO orderDTO);
-
+  void processShipmentResponse(OrderDTO orderDTO);
 }

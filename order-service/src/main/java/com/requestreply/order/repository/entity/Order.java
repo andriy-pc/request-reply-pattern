@@ -14,18 +14,16 @@ import java.util.List;
 @Setter
 public class Order {
 
-    @Id
-    private Integer id;
+  @Id private Integer id;
 
-    @Column(name = "original_order_id")
-    private String originalOrderId;
+  @Column(name = "original_order_id")
+  private String originalOrderId;
 
-    @Column(name = "status")
-    @Convert(converter = OrderStatusConverter.class)
-    private OrderStatusEnum status;
+  @Column(name = "status")
+  @Convert(converter = OrderStatusConverter.class)
+  private OrderStatusEnum status;
 
-    @OneToMany
-    @JoinColumn(name = "order_id")
-    private List<OrderEntry> orderEntries;
-
+  @OneToMany
+  @JoinColumn(name = "order_id")
+  private List<OrderEntry> orderEntries;
 }

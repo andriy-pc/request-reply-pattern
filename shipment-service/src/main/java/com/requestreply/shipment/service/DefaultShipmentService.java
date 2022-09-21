@@ -13,20 +13,18 @@ import static java.lang.Math.random;
 @RequiredArgsConstructor
 public class DefaultShipmentService implements ShipmentService {
 
-    private final KafkaTemplate<String, OrderDTO> kafkaTemplate;
+  private final KafkaTemplate<String, OrderDTO> kafkaTemplate;
 
-    @Override
-    public void requestShipping(OrderDTO order) {
-        if (random() > 0.6) {
-            order.setStatus(SHIPPING_REJECTED);
-        }
-        order.setStatus(SHIPPING);
-        respondForShipmentRequest(order);
+  @Override
+  public void requestShipping(OrderDTO order) {
+    if (random() > 0.6) {
+      order.setStatus(SHIPPING_REJECTED);
     }
+    order.setStatus(SHIPPING);
+    respondForShipmentRequest(order);
+  }
 
-    public void respondForShipmentRequest(OrderDTO order) {
-        kafkaTemplate.send("shipment-response", order);
-    }
-
-
+  public void respondForShipmentRequest(OrderDTO order) {
+    kafkaTemplate.send("shipment-response", order);
+  }
 }

@@ -12,10 +12,9 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderDTO {
 
-    private String originalOrderId;
+  private String originalOrderId;
 
-    private OrderStatusEnum status;
+  private OrderStatusEnum status;
 
-    private List<OrderEntryDTO> orderEntries;
-
+  private List<OrderEntryDTO> orderEntries;
 }

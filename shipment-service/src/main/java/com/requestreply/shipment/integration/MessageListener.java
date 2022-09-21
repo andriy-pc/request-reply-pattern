@@ -10,11 +10,10 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class MessageListener {
 
-    private final ShipmentService shipmentService;
+  private final ShipmentService shipmentService;
 
-    @KafkaListener(id = "orders", topics = "shipment-request")
-    private void listenForOrderShipment(OrderDTO order) {
-        shipmentService.requestShipping(order);
-    }
-
+  @KafkaListener(id = "orders", topics = "shipment-request")
+  private void listenForOrderShipment(OrderDTO order) {
+    shipmentService.requestShipping(order);
+  }
 }

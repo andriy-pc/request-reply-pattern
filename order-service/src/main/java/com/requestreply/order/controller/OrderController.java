@@ -12,20 +12,16 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class OrderController {
 
-    private final DefaultOrderService orderService;
+  private final DefaultOrderService orderService;
 
-    @GetMapping("/{originalOrderId}")
-    public ResponseEntity<OrderDTO> getByOriginalOrderId(@PathVariable String originalOrderId) {
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(orderService.getByOriginalOrderId(originalOrderId));
-    }
+  @GetMapping("/{originalOrderId}")
+  public ResponseEntity<OrderDTO> getByOriginalOrderId(@PathVariable String originalOrderId) {
+    return ResponseEntity.status(HttpStatus.OK)
+        .body(orderService.getByOriginalOrderId(originalOrderId));
+  }
 
-    @PatchMapping("/ship/{originalOrderId}")
-    public ResponseEntity<Boolean> shipByOriginalOrderId(@PathVariable String originalOrderId) {
-        return ResponseEntity
-                .status(HttpStatus.OK)
-                .body(orderService.ship(originalOrderId));
-    }
-
+  @PatchMapping("/ship/{originalOrderId}")
+  public ResponseEntity<Boolean> shipByOriginalOrderId(@PathVariable String originalOrderId) {
+    return ResponseEntity.status(HttpStatus.OK).body(orderService.ship(originalOrderId));
+  }
 }
