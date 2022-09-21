@@ -1,4 +1,4 @@
-package com.requestreply.order.service.dao.model;
+package com.requestreply.order.repository.entity;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,16 +15,14 @@ import java.math.BigDecimal;
 @Setter
 public class Product {
 
-    @Id
-    private Integer id;
+  @Id private Integer id;
 
-    @Column(name = "name")
-    private String name;
+  @Column(name = "name")
+  private String name;
 
-    @Column(name = "stock_quantity")
-    private Integer stockQuantity;
+  @Column(name = "stock_quantity")
+  private Integer stockQuantity;
 
-    @Column(name = "price")
-    private BigDecimal price;
-
+  @Column(name = "price")
+  private BigDecimal price;
 }

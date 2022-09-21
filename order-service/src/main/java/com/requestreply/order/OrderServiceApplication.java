@@ -1,14 +1,12 @@
-package com.requestreply.order.service;
+package com.requestreply.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
 public class OrderServiceApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(OrderServiceApplication.class);
-    }
-
+  public static void main(String[] args) {
+    SpringApplication.run(OrderServiceApplication.class);
+  }
 }
