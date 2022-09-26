@@ -20,25 +20,22 @@ import static java.util.stream.Collectors.toList;
 @RequiredArgsConstructor
 public class TopicCreator {
 
-    private final AdminClient adminClient;
+  private final AdminClient adminClient;
 
-    @Value("#{'${listener.topics.shipment.request}, ${listener.topics.shipment.response}'.split(', ')}")
-    Collection<String> topicNamesToCreate;
+  @Value(
+      "#{'${listener.topics.shipment.request}, ${listener.topics.shipment.response}'.split(', ')}")
+  Collection<String> topicNamesToCreate;
 
-    @EventListener(ApplicationReadyEvent.class)
-    @SneakyThrows
-    public void createTopicsIfNecessary() {
-        ListTopicsResult listTopicsResult = adminClient.listTopics();
-        Set<String> topicNames = listTopicsResult.names().get(10, SECONDS);
-        topicNames.forEach(topicNamesToCreate::remove);
-        adminClient.createTopics(buildTopics(topicNamesToCreate));
-    }
+  @EventListener(ApplicationReadyEvent.class)
+  @SneakyThrows
+  public void createTopicsIfNecessary() {
+    ListTopicsResult listTopicsResult = adminClient.listTopics();
+    Set<String> topicNames = listTopicsResult.names().get(10, SECONDS);
+    topicNames.forEach(topicNamesToCreate::remove);
+    adminClient.createTopics(buildTopics(topicNamesToCreate));
+  }
 
-    Collection<NewTopic> buildTopics(Collection<String> topicsToCreate) {
-        return topicsToCreate
-                .stream()
-                .map(name -> new NewTopic(name, 1, (short) 1))
-                .collect(toList());
-    }
-
+  Collection<NewTopic> buildTopics(Collection<String> topicsToCreate) {
+    return topicsToCreate.stream().map(name -> new NewTopic(name, 1, (short) 1)).collect(toList());
+  }
 }
