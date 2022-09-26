@@ -1,6 +1,8 @@
 package com.requestreply.order.config;
 
 import model.dto.OrderDTO;
+import org.apache.kafka.clients.admin.AdminClient;
+import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -25,6 +27,13 @@ public class KafkaConfig {
 
   @Value("${config.kafka.url}")
   private String bootstrapServerURL;
+
+  @Bean
+  public AdminClient adminClient() {
+    Map<String, Object> configs = new HashMap<>();
+    configs.put(AdminClientConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServerURL);
+    return AdminClient.create(configs);
+  }
 
   @Bean
   public ProducerFactory<String, OrderDTO> producerFactory() {

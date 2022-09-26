@@ -21,6 +21,7 @@ run order service:
 
     java -jar ./order-service/target/order-service-0.0.1-SNAPSHOT.jar
 
+**Note:** services bootstrap order doesn't matter. Both services have logic to create topics. 
 
 ### How to use
 Basically you have only two available HTTP requests:
