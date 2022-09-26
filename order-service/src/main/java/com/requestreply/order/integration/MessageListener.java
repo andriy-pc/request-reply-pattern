@@ -12,7 +12,7 @@ public class MessageListener {
 
   private final OrderService orderService;
 
-  @KafkaListener(id = "orders", topics = "shipment-response")
+  @KafkaListener(id = "${listener.id}", topics = "${listener.topics.shipment.response}")
   private void listenForOrderShipment(OrderDTO orderDTO) {
     orderService.processShipmentResponse(orderDTO);
   }

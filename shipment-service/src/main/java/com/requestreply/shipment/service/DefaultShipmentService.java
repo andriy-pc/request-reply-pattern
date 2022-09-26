@@ -2,6 +2,7 @@ package com.requestreply.shipment.service;
 
 import lombok.RequiredArgsConstructor;
 import model.dto.OrderDTO;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,9 @@ public class DefaultShipmentService implements ShipmentService {
 
   private final KafkaTemplate<String, OrderDTO> kafkaTemplate;
 
+  @Value("${listener.topics.shipment.response}")
+  private String shipmentResponseTopicName;
+
   @Override
   public void requestShipping(OrderDTO order) {
     if (random() > 0.6) {
@@ -25,6 +29,6 @@ public class DefaultShipmentService implements ShipmentService {
   }
 
   public void respondForShipmentRequest(OrderDTO order) {
-    kafkaTemplate.send("shipment-response", order);
+    kafkaTemplate.send(shipmentResponseTopicName, order);
   }
 }
