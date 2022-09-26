@@ -6,6 +6,7 @@ import com.requestreply.order.repository.entity.Order;
 import enums.OrderStatusEnum;
 import lombok.RequiredArgsConstructor;
 import model.dto.OrderDTO;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,6 +23,9 @@ public class DefaultOrderService implements OrderService {
 
   private final KafkaTemplate<String, OrderDTO> kafkaTemplate;
 
+  @Value("${listener.topics.shipment.request}")
+  private String shipmentRequestTopicName;
+
   public OrderDTO getByOriginalOrderId(String originalOrderId) {
     return orderMapper.toDto(orderRepository.findByOriginalOrderId(originalOrderId));
   }
@@ -30,7 +34,7 @@ public class DefaultOrderService implements OrderService {
   public Boolean ship(String originalOrderId) {
     Order order = orderRepository.findByOriginalOrderId(originalOrderId);
     order.setStatus(OrderStatusEnum.SHIPPING_REQUESTED);
-    kafkaTemplate.send("shipment-request", orderMapper.toDto(order));
+    kafkaTemplate.send(shipmentRequestTopicName, orderMapper.toDto(order));
     orderRepository.update(order);
     return SHIPMENT_REQUEST_ACCEPTED;
   }

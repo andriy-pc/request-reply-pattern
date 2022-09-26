@@ -17,3 +17,10 @@ spring:
 config:
   kafka:
     url: localhost:29092
+
+listener:
+  id: orders
+  topics:
+    shipment:
+      request: shipment-request
+      response: shipment-response
